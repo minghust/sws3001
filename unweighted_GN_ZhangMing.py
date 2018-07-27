@@ -76,7 +76,7 @@ sum_labels=0
 X = np.genfromtxt(simfilename, delimiter=' ', encoding='utf8', dtype=None)
 # print(X)
 label2idx = dict()
-sim = np.zeros((250, 250))
+sim = np.zeros((500, 500))
 sim.fill(100)
 if os.path.exists(labelfilename):
     os.remove(labelfilename)
@@ -105,8 +105,9 @@ Config.labels = []
 with open(labelfilename) as f:
     for line in f:
         _id, label = line.rstrip().split(",")
-        _type = str(int((int(_id)/10)))+'-'+str(int(_id)%10)
-        Config.labels.append(_type)
+        _type = str(int((int(_id)/20)))+'-'+str(int(_id)%20)
+        label.split("__")[0]
+        Config.labels.append(label.split("__")[0]+'-'+str(int(_id)%20))
 
 # print("Loaded labels (" + str(len(Config.labels)) + " classes): ", end='')
 # print(Config.labels)
@@ -123,7 +124,7 @@ print('avg={0} min={1} max={2}'.format(mmean, mmin, mmax))
 
 # Select a suitable threshold and set dissimilarity scores larger than that threshold to zero
 
-threshold = 0.7
+threshold = 0.48
 adjmat = sim.copy()
 np.fill_diagonal(adjmat, np.min(simflat)) # Set the diagonal elements to a small value so that they won't be zeroed out
 
@@ -146,7 +147,7 @@ np.set_printoptions(threshold=np.nan)
 # Construct a networkx graph from the adjacency matrix
 # (Singleton nodes are excluded from the graph)
 G = make_graph(adjmat, labels=Config.labels)
-nx.draw(G, with_labels=True)
+# nx.draw(G, with_labels=True)
 
 """---
 
@@ -159,7 +160,7 @@ from networkx.algorithms.community.centrality import girvan_newman
 
 comp = girvan_newman(G)
 
-max_shown = 6
+max_shown = 1
 shown_count = 1
 possibilities = []
 for communities in itertools.islice(comp, max_shown):
@@ -170,13 +171,12 @@ for communities in itertools.islice(comp, max_shown):
     color_map = ["" for x in range(len(G))]
     color = 0
     for c in communities:
-        # print(type(c)) # a set
         indices = [i for i, x in enumerate(G.nodes) if x in c]
         for i in indices:
             color_map[i] = Config.colors[color]
         color += 1
+    print('styles: ',color)
     shown_count += 1
-    print(color_map)
     nx.draw(G, node_color=color_map, with_labels=True)
     plt.show()
 
@@ -184,19 +184,10 @@ for communities in itertools.islice(comp, max_shown):
 
 export_edge_list(adjmat, labels=Config.labels, filename='gephi-edges.csv')
 
-"""---
-
-
-##Homework
-<a id="homework"></a>
-Complete the questions below. The first question should be straightforward.
-
 ###Q1. Generate the edge file and community file for the pals system.
-"""
-
 # Generate the community file for pals system
 
-which_possibility = 6
+which_possibility = 1
 
 communities = possibilities[which_possibility-1]
 
@@ -276,7 +267,7 @@ plt.xlabel('node index', fontsize=15)
 plt.ylabel('number of neighbors', fontsize=15)
 # finally, plot and show
 plt.bar(x, y)
-plt.show()
+# plt.show()
 
 """###Q5. Produce a list of the nodes sorted from that with the most neighbors to that with the least neighbors"""
 
@@ -287,4 +278,4 @@ sorted_label_neighbors = sorted(label_neighbors, key=lambda item: item[1], rever
 table = PrettyTable(['Node', 'Number of Neighbors'])
 for item in sorted_label_neighbors:
     table.add_row(item)
-print(table)
+# print(table)
