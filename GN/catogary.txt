@@ -1,0 +1,48 @@
+<抽象派> <抽象表现主义> <非正式艺术> 新艺术（现代） 巴洛克 彩色场绘画 <立体主义>
+<早期文艺复兴> 表现主义 <高文艺复兴> <印象派> <魔幻现实主义> <矫饰主义（文艺复兴晚期）> <极简主义>
+天真的艺术（原始主义）新古典主义 <北方文艺复兴> <流行艺术> <后印象派> <现实主义> 洛可可
+浪漫主义 <超现实主义> 象征 <浮世绘>
+
+
+1. individules: 
+    Early Renaissance
+    Ukiyo-e
+2. relationship:
+    color filed painting - minimalisim
+    cubsim - surrealism
+    surrealism - magic realism
+    Impressionism - post-Impressionism
+    abstract expressionism - art informal
+    naive art - surrealism
+
+    
+insight_1: cubsim, magic realism, naive art, surrealism
+    Top-1 accuracy : 40.0%
+    Top-3 accuracy : 68.75%
+    Top-5 accuracy : 81.25%
+    style很相近的话,CNN识别准确度不高,
+
+insight_2: color filed painting, minimalisim
+    Top-1 accuracy : 82.5%
+    Top-3 accuracy : 92.5%
+    Top-5 accuracy : 97.5%
+
+insight_3: abstract expressionism, art informal
+    Top-1 accuracy : 30.0%
+    Top-3 accuracy : 67.5%
+    Top-5 accuracy : 82.5%
+
+insight_4: Impressionism, post Impressionism
+    Top-1 accuracy : 50.0%
+    Top-3 accuracy : 82.5%
+    Top-5 accuracy : 90.0%
+
+
+PPT
+1. Overview
+2. 介绍数据集,数据特点
+3. 介绍得到了什么
+4. 工作流程
+5. 三种算法,结果,分析
+6. 三种算法比较
+7. 使用的工具,体会
