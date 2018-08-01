@@ -1,0 +1,24 @@
+SWS3001 (17/18 ST II) Lab Homework
+
+For your homework, please open the Colab file at
+
+https://drive.google.com/open?id=1lNKQvjDiIeeI4t7EX28NaNYJoH4ZuDFx
+
+In this homework you are to compute some descriptive statistics of a
+large graph.
+
+The first part of the notebook constructs the graph for your analysis
+-- DO NOT CHANGE THE CODES IN THIS PART. The latter part consists of
+your homework.
+
+To submit the homework, go to the top menu and choose "File>Download .ipynb".
+This will save the document as a Jupyter notebook file.
+
+Change the name of the notebook file to your student ID (e.g. t0916001.ipynb),
+and upload the file to IVLE in the folder
+ "Files> Student Submission> Lab Homework>" before the deadline.
+
+20% OF YOUR HOMEWORK MARKS WILL BE DEDUCTED IF YOUR FILENAME IS NOT YOUR
+STUDENT ID.
+
+The deadline of this homework is Tuesday 11:59pm, 17 July 2018.
